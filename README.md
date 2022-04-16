@@ -1,6 +1,6 @@
 # bullet-time
+![bullet-time](https://user-images.githubusercontent.com/52606560/163669669-93114efa-507f-4c9a-8da5-f1f6cd95fd1b.gif)
 
-![bullet-time](https://user-images.githubusercontent.com/52606560/163667559-b790d426-f046-46da-b287-e0ed2019a1f4.jpeg)
 
 # Getting Started
 ## build
@@ -12,3 +12,4 @@ $ ./gradlew build
 ```bash
 $ java -Dspring.profiles.active=local -jar build/libs/bullet-time-x.x.x-SNAPSHOT.jar
 ```
+- [localhost:8080](http://localhost:8080)
