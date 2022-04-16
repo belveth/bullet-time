@@ -1,1 +1,0 @@
-/Users/oohyun/git-private/bullet-time/build/classes/kotlin/main/com/belveth/bullettime/BulletTimeApplication.class:/Users/oohyun/git-private/bullet-time/build/classes/kotlin/main/com/belveth/bullettime/BulletTimeApplicationKt.class
