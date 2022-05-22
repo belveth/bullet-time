@@ -9,8 +9,7 @@ import javax.persistence.Table
 @Table(name = "users")
 class UserEntity(
   @Id
-  @Column
-  var id: String = "",
+  var id: Int? = 0,
 
   @Column(nullable = false)
   var email: String = "",
