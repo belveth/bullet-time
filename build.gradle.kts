@@ -1,11 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+	val kotlinVersion = "1.6.10"
 	id("org.springframework.boot") version "2.6.6"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	kotlin("jvm") version "1.6.10"
-	kotlin("plugin.spring") version "1.6.10"
-	kotlin("plugin.jpa") version "1.6.10"
+	kotlin("jvm") version kotlinVersion
+	kotlin("plugin.spring") version kotlinVersion
+	kotlin("plugin.jpa") version kotlinVersion
+	kotlin("kapt") version kotlinVersion
 }
 
 group = "com.belveth"
@@ -31,14 +33,13 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("mysql:mysql-connector-java")
 	implementation("org.mapstruct:mapstruct:1.4.2.Final")
+	kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-
-	kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
 }
 
 tasks.withType<KotlinCompile> {
