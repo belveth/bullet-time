@@ -9,18 +9,18 @@ import javax.persistence.Table
 @Table(name = "users")
 class UserEntity(
   @Id
-  @Column(name = "id")
+  @Column
   var id: String = "",
 
-  @Column(name = "email", nullable = false)
-  var email: String = ""
+  @Column(nullable = false)
+  var email: String = "",
 
-  @Column(name = "nickname")
-  var nickname: String = ""
+  @Column(nullable = false)
+  var nickname: String = "",
 
-  @Column(name = "password_digest")
-  var email: String = ""
+  @Column(nullable = false)
+  var password_digest: String = "",
 
-  @Column(name = "gender", columnDefinition = "int default 0")
+  @Column(columnDefinition = "int default 0")
   var gender: Int = 0,
 )
