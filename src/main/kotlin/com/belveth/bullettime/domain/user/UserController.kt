@@ -13,5 +13,5 @@ class UserController(
     val userService: UserService,
 ) {
   @GetMapping("/{id}")
-  fun getUser(@PathVariable id: Int): UserDto = userService.getUser(id)
+  fun getUser(@PathVariable id: Long): UserDto = userService.getUser(id)
 }

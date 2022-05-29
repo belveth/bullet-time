@@ -10,6 +10,6 @@ class UserService(
   val userRepository: UserRepository,
   val mapper: UserMapper,
 ) {
-  fun getUser(id: Int): UserDto =
-    userRepository.getUser(id).let { mapper.dtoFromEntity(it.orElseThrow()) }
+  fun getUser(id: Long): UserDto =
+    userRepository.findById(id).let { mapper.dtoFromEntity(it.orElseThrow()) }
 }
