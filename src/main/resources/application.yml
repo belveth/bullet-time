@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     url: jdbc:log4jdbc:mysql://localhost:3306/bullettime?useUnicode=true&serverTimezone=UTC&createDatabaseIfNotExist=true
-    username:
+    username: root
     password:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
   jpa:
