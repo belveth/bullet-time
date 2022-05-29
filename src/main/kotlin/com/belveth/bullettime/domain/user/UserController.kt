@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.DeleteMapping
 
 @RestController
 @RequestMapping("/users")
@@ -21,7 +22,11 @@ class UserController(
   @GetMapping("/{id}") fun getUser(@PathVariable id: Long): UserDto = userService.getUser(id)
 
   @PostMapping()
-  @ResponseStatus(HttpStatus.CREATED)
+  @ResponseStatus(HttpStatus.OK)
   fun createUser(@Validated @RequestBody createUserDto: CreateUserDto): UserDto =
       userService.createUser(createUserDto)
+
+  @DeleteMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  fun deleteUser(@PathVariable id: Long) = userService.deleteUser(id)
 }

@@ -23,4 +23,7 @@ class UserService(
 
     return mapper.dtoFromEntity(userRepository.save(mapper.toEntityFromDto(createUserDto)))
   }
+
+  @Transactional
+  fun deleteUser(id: Long) = userRepository.deleteById(id)
 }
