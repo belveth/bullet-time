@@ -34,6 +34,7 @@ dependencies {
 	implementation("mysql:mysql-connector-java")
 	implementation("org.mapstruct:mapstruct:1.4.2.Final")
 	implementation("jakarta.validation:jakarta.validation-api:2.0.2")
+	implementation("org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16")
 	kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")

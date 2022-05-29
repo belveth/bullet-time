@@ -3,14 +3,13 @@ server:
 
 spring:
   datasource:
-    bullettime:
-      writer:
-        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-        jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/bullettime?useUnicode=true&serverTimezone=UTC
-        username: root
-        password:
-      reader:
-        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-        jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/bullettime?useUnicode=true&serverTimezone=UTC
-        username: root
-        password:
+    url: jdbc:log4jdbc:mysql://localhost:3306/bullettime?useUnicode=true&serverTimezone=UTC&createDatabaseIfNotExist=true
+    username:
+    password:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      # https://velog.io/@owljoa/%EC%88%98%EC%A0%95%ED%95%84%EC%9A%94-JPA-Hibernate-%EC%B4%88%EA%B8%B0-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%83%9D%EC%84%B1-
+      ddl-auto: update
+    generate-ddl: true
