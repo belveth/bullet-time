@@ -34,20 +34,20 @@ class PostEntity(
   @Column()
   var status: Int,
 
-  @Column()
-  var rent_count: Int,
+  @Column(name = "rent_count")
+  var rentCount: Int,
 
-  @Column()
-  var like_count: Int,
+  @Column(name = "like_count")
+  var likeCount: Int,
 
-  @Column()
-  var chat_count: Int,
+  @Column(name = "chat_count")
+  var chatCount: Int,
 
-  @Column()
-  var user_id: Long,
+  @Column(name = "user_id")
+  var userId: Long,
 
-  @Column()
-  var category_id: Long,
+  @Column(name = "category_id")
+  var categoryId: Long,
 
   @Column()
   var price: Long,
@@ -55,14 +55,14 @@ class PostEntity(
   @Column()
   var image: String = "",
 
-  @Column()
-  var location_id: Long,
+  @Column(name = "location_id")
+  var locationId: Long,
 
-  @Column()
-  var reports_count: Int = 0,
+  @Column(name = "reports_count")
+  var reportsCount: Int = 0,
 
-  @Column()
-  var likes_count: Int = 0,
+  @Column(name = "likes_count")
+  var likesCount: Int = 0,
 
   @Lob
   @Column()
@@ -71,15 +71,17 @@ class PostEntity(
   @Column()
   var product: String,
 
-  @Column()
-  var reviews_count: Int = 0,
+  @Column(name = "reviews_count")
+  var reviewsCount: Int = 0,
 
-  @Column()
-  var rating_avg: Float = 0.0f,
+  @Column(name = "rating_avg")
+  var ratingAvg: Float = 0.0f,
 
   @CreationTimestamp
-  var created_at: Date,
+  @Column(name = "created_at")
+  var createdAt: Date,
 
   @UpdateTimestamp
-  var updated_at: Date,
+  @Column(name = "updated_at")
+  var updatedAt: Date,
 )
