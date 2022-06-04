@@ -5,5 +5,7 @@ import java.util.Optional
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface PostRepository : JpaRepository<PostEntity, Long> {
-  fun findByEmail(email: String): Optional<PostEntity>
+  fun findByCategoryId(id: Long): Optional<PostEntity>
+  fun findByLocationId(id: Long): Optional<PostEntity>
+  fun findByUserId(id: Long): Optional<PostEntity>
 }
