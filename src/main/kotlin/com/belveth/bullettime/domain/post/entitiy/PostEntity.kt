@@ -1,5 +1,7 @@
 package com.belveth.bullettime.domain.post.entity
 
+import org.hibernate.annotations.DynamicInsert
+import org.hibernate.annotations.DynamicUpdate
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Id
@@ -19,6 +21,8 @@ import javax.persistence.*
           Index(columnList = "location_id"),
           Index(columnList = "user_id")
         ])
+@DynamicInsert
+@DynamicUpdate
 class PostEntity(
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,7 +57,7 @@ class PostEntity(
   var price: Long,
 
   @Column()
-  var image: String = "",
+  var image: String? = "",
 
   @Column(name = "location_id")
   var locationId: Long,
@@ -79,9 +83,9 @@ class PostEntity(
 
   @CreationTimestamp
   @Column(name = "created_at")
-  var createdAt: Date,
+  var createdAt: Date?,
 
   @UpdateTimestamp
   @Column(name = "updated_at")
-  var updatedAt: Date,
+  var updatedAt: Date?,
 )
