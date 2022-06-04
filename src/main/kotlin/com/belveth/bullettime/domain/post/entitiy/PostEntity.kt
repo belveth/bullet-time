@@ -15,75 +15,67 @@ import javax.persistence.*
 @Entity
 @Table(name = "posts",
         indexes = [
-          Index(columnList = "nickname", unique = true),
-          Index(columnList = "email", unique = true)
+          Index(columnList = "category_id"),
+          Index(columnList = "location_id"),
+          Index(columnList = "user_id")
         ])
 class PostEntity(
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   var id: Long? = null,
 
-  @Column(nullable = false)
-  var email: String = "",
-
-  @Column(nullable = false)
-  var name: String = "",
-
-  @Column(nullable = false)
-  var nickname: String = "",
-
-  @Column(nullable = false)
-  var password_digest: String = "",
-
-  @Column(columnDefinition = "int default 0")
-  var gender: Int = 0,
+  @Column()
+  var title: String = "",
 
   @Lob
   @Column()
   var body: String,
 
-  //TODO - reference to Location
   @Column()
-  var location_id: BigInteger,
+  var status: Int,
 
-  @Column(columnDefinition = "int default 0")
-  var location_range: Int = 0,
+  @Column()
+  var rent_count: Int,
+
+  @Column()
+  var like_count: Int,
+
+  @Column()
+  var chat_count: Int,
+
+  @Column()
+  var user_id: Long,
+
+  @Column()
+  var category_id: Long,
+
+  @Column()
+  var price: Long,
 
   @Column()
   var image: String = "",
 
   @Column()
-  var uid: String = "",
-
-  @Column()
-  var provider: String = "",
-
-  @Column()
-  var user_type: String = "",
-
-  @Column()
-  var account_type: String = "normal",
-
-  @Column()
-  var devise_type: String = "normal",
-
-  @Column()
-  var birthday: String = "",
-
-  @Column()
-  var number: String = "",
-
-  @Column()
-  var likes_count: Int = 0,
+  var location_id: Long,
 
   @Column()
   var reports_count: Int = 0,
 
   @Column()
+  var likes_count: Int = 0,
+
+  @Lob
+  @Column()
+  var contract: String,
+
+  @Column()
+  var product: String,
+
+  @Column()
   var reviews_count: Int = 0,
 
   @Column()
-  var expire_at: Date,
+  var rating_avg: Float = 0.0f,
 
   @CreationTimestamp
   var created_at: Date,
