@@ -17,10 +17,6 @@ class PostService(
 
   @Transactional
   fun createPost(createPostDto: CreatePostDto): PostDto {
-    postRepository.findByEmail(createPostDto.email!!).ifPresent {
-      // TODO: throw error
-    }
-
     return mapper.dtoFromEntity(postRepository.save(mapper.toEntityFromDto(createPostDto)))
   }
 
