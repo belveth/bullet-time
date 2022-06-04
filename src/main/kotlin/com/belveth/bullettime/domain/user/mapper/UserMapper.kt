@@ -3,10 +3,7 @@ package com.belveth.bullettime.domain.user.mapper
 import com.belveth.bullettime.domain.user.dto.CreateUserDto
 import com.belveth.bullettime.domain.user.dto.UserDto
 import com.belveth.bullettime.domain.user.entity.UserEntity
-import org.mapstruct.BeanMapping
-import org.mapstruct.Mapper
-import org.mapstruct.NullValuePropertyMappingStrategy
-import org.mapstruct.ReportingPolicy
+import org.mapstruct.*
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 interface UserMapper {
@@ -14,5 +11,6 @@ interface UserMapper {
   fun dtoFromEntity(userEntity: UserEntity): UserDto
 
   @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+  @Mapping(source = "password", target = "passwordDigest")
   fun toEntityFromDto(createUserDto: CreateUserDto): UserEntity
 }

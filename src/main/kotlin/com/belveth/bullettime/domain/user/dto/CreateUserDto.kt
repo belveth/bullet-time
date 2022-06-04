@@ -4,10 +4,11 @@ import javax.validation.constraints.NotBlank
 
 data class CreateUserDto(
     @field:NotBlank
-    var name: String?,
+    var name: String,
     @field:NotBlank
-    var email: String?,
+    var email: String,
     @field:NotBlank
-    var password: String?,
-    var nickname: String?,
+    var nickname: String,
+    @field:NotBlank
+    var password: String,
 )

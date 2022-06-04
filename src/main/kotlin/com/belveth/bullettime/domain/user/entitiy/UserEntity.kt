@@ -1,16 +1,17 @@
 package com.belveth.bullettime.domain.user.entity
 
+import com.sun.istack.NotNull
+import org.hibernate.annotations.*
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.Table
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
-import org.hibernate.annotations.CreationTimestamp
-import org.hibernate.annotations.UpdateTimestamp
 import java.math.BigInteger
 import java.util.*
 import javax.persistence.*
+import javax.persistence.Index
 
 @Entity
 @Table(name = "users",
@@ -18,76 +19,92 @@ import javax.persistence.*
           Index(columnList = "nickname", unique = true),
           Index(columnList = "email", unique = true)
         ])
+@DynamicInsert
+@DynamicUpdate
 class UserEntity(
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  var id: Long? = null,
+  var id: Long,
 
-  @Column(nullable = false)
-  var email: String = "",
+  @Column()
+  @NotNull()
+  var email: String,
 
-  @Column(nullable = false)
-  var name: String = "",
+  @Column()
+  @NotNull()
+  var name: String,
 
-  @Column(nullable = false)
-  var nickname: String = "",
+  @Column()
+  @NotNull()
+  var nickname: String,
 
-  @Column(nullable = false)
-  var password_digest: String = "",
+  @Column(name="password_digest")
+  @NotNull()
+  var passwordDigest: String,
 
   @Column(columnDefinition = "int default 0")
-  var gender: Int = 0,
+  @ColumnDefault("0")
+  var gender: Int?,
 
   @Lob
   @Column()
-  var body: String,
+  var body: String?,
 
   //TODO - reference to Location
-  @Column()
-  var location_id: BigInteger,
-
-  @Column(columnDefinition = "int default 0")
-  var location_range: Int = 0,
-
-  @Column()
-  var image: String = "",
+//  @Column(name="location_id")
+//  var locationId: BigInteger?,
+//
+//  @Column(name="location_range")
+//  @ColumnDefault("0")
+//  var locationRange: Int,
 
   @Column()
-  var uid: String = "",
+  var image: String?,
 
   @Column()
-  var provider: String = "",
+  var uid: String?,
 
   @Column()
-  var user_type: String = "",
+  var provider: String?,
+
+  @Column(name="user_type")
+  @ColumnDefault("0")
+  var userType: Int?,
+
+  @Column(name="account_type")
+  @ColumnDefault("'normal'")
+  var accountType: String?,
+
+  @Column(name="devise_type")
+  @ColumnDefault("'normal'")
+  var deviseType: String?,
 
   @Column()
-  var account_type: String = "normal",
+  var birthday: String?,
 
   @Column()
-  var devise_type: String = "normal",
+  var number: String?,
+
+  @Column(name="likes_count")
+  @ColumnDefault("0")
+  var likes_count: Int?,
+
+  @Column(name="reports_count")
+  @ColumnDefault("0")
+  var reportsCount: Int?,
+
+  @Column(name="reviews_count")
+  @ColumnDefault("0")
+  var reviews_count: Int?,
 
   @Column()
-  var birthday: String = "",
+  var expire_at: Date?,
 
-  @Column()
-  var number: String = "",
-
-  @Column()
-  var likes_count: Int = 0,
-
-  @Column()
-  var reports_count: Int = 0,
-
-  @Column()
-  var reviews_count: Int = 0,
-
-  @Column()
-  var expire_at: Date,
-
+  @Column(name="created_at")
   @CreationTimestamp
-  var created_at: Date,
+  var createdAt: Date?,
 
+  @Column(name="updated_at")
   @UpdateTimestamp
-  var updated_at: Date,
+  var updatedAt: Date?,
 )
