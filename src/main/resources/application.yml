@@ -13,3 +13,5 @@ spring:
       # https://velog.io/@owljoa/%EC%88%98%EC%A0%95%ED%95%84%EC%9A%94-JPA-Hibernate-%EC%B4%88%EA%B8%B0-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%83%9D%EC%84%B1-
       ddl-auto: update
     generate-ddl: true
+  flyway:
+    enabled: false
