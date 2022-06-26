@@ -70,7 +70,7 @@ class PostEntity(
 
   @Lob
   @Column()
-  var contract: String,
+  var contract: String?,
 
   @Column()
   var product: String,
