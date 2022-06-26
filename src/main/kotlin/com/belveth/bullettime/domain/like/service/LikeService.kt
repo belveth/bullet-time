@@ -1,6 +1,7 @@
 package com.belveth.bullettime.domain.like.service
 
 import com.belveth.bullettime.domain.like.dto.CreateLikeDto
+import com.belveth.bullettime.domain.like.dto.LikeDto
 import com.belveth.bullettime.domain.like.mapper.LikeMapper
 import com.belveth.bullettime.domain.like.repository.LikeRepository
 import org.springframework.stereotype.Service
@@ -17,7 +18,7 @@ class LikeService(
   @Transactional
   fun createLike(createLikeDto: CreateLikeDto): LikeDto {
     // check target's like is already present.
-    likeRepository.findByTarget(createLikeDto.targetType!!, createLikeDto.targetId!!).ifPresent {
+    likeRepository.findByTarget(createLikeDto.targetType, createLikeDto.targetId).ifPresent {
       // TODO: throw error
     }
 
