@@ -8,7 +8,6 @@ import javax.persistence.Id
 import javax.persistence.Table
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
-import java.math.BigInteger
 import java.util.*
 import javax.persistence.*
 import javax.persistence.Index
@@ -95,10 +94,10 @@ class UserEntity(
 
   @Column(name="reviews_count")
   @ColumnDefault("0")
-  var reviews_count: Int?,
+  var reviewsCount: Int?,
 
   @Column()
-  var expire_at: Date?,
+  var expireAt: Date?,
 
   @Column(name="created_at")
   @CreationTimestamp

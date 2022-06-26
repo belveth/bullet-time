@@ -2,17 +2,11 @@ package com.belveth.bullettime.domain.post
 
 import com.belveth.bullettime.domain.post.dto.CreatePostDto
 import com.belveth.bullettime.domain.post.dto.PostDto
+import com.belveth.bullettime.domain.post.dto.UpdatePostDto
 import com.belveth.bullettime.domain.post.service.PostService
 import org.springframework.http.HttpStatus
 import org.springframework.validation.annotation.Validated
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.ResponseStatus
-import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/posts")
@@ -25,6 +19,11 @@ class PostController(
   @ResponseStatus(HttpStatus.OK)
   fun createPost(@Validated @RequestBody createPostDto: CreatePostDto): PostDto =
       postService.createPost(createPostDto)
+
+  @PutMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  fun updatePoset(@PathVariable id: Long, @Validated @RequestBody updatePostDto: UpdatePostDto): PostDto =
+      postService.updatePost(id, updatePostDto)
 
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
