@@ -18,7 +18,7 @@ class LikeService(
   @Transactional
   fun createLike(createLikeDto: CreateLikeDto): LikeDto {
     // check target's like is already present.
-    likeRepository.findByTarget(createLikeDto.targetType, createLikeDto.targetId).ifPresent {
+    likeRepository.findByTargetTypeAndTargetId(createLikeDto.targetType, createLikeDto.targetId).ifPresent {
       // TODO: throw error
     }
 

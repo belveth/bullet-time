@@ -5,5 +5,5 @@ import java.util.Optional
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface LikeRepository : JpaRepository<LikeEntity, Long> {
-  fun findByTarget(targetType: String, targetId: Long): Optional<LikeEntity>
+  fun findByTargetTypeAndTargetId(targetType: String, targetId: Long): Optional<LikeEntity>
 }

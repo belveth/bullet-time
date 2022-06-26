@@ -13,7 +13,10 @@ import javax.persistence.Table
 import org.hibernate.annotations.*
 
 @Entity
-@Table(name = "likes", indexes = [Index(columnList = "user_id")])
+@Table(name = "likes", indexes = [
+    Index(columnList = "user_id"),
+    Index(columnList = "target_type, target_id"),
+])
 @DynamicInsert
 @DynamicUpdate
 class LikeEntity(
