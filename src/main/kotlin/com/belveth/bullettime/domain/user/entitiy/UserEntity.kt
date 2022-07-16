@@ -1,5 +1,6 @@
 package com.belveth.bullettime.domain.user.entity
 
+import com.belveth.bullettime.domain.user.listener.UserListener
 import com.sun.istack.NotNull
 import org.hibernate.annotations.*
 import javax.persistence.Column
@@ -13,6 +14,7 @@ import javax.persistence.*
 import javax.persistence.Index
 
 @Entity
+@EntityListeners(UserListener::class)
 @Table(name = "users",
         indexes = [
           Index(columnList = "nickname", unique = true),
@@ -86,7 +88,7 @@ class UserEntity(
 
   @Column(name="likes_count")
   @ColumnDefault("0")
-  var likes_count: Int?,
+  var likesCount: Int?,
 
   @Column(name="reports_count")
   @ColumnDefault("0")

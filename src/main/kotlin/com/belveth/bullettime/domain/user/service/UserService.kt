@@ -20,7 +20,7 @@ class UserService(
 
   @Transactional
   fun createUser(createUserDto: CreateUserDto): UserDto {
-    userRepository.findByEmail(createUserDto.email!!).ifPresent {
+    userRepository.findByEmail(createUserDto.email).ifPresent {
       throw UserException("User alreasy exists with email $createUserDto.email")
     }
 
