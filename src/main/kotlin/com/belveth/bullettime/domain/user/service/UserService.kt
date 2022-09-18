@@ -21,7 +21,7 @@ class UserService(
   @Transactional
   fun createUser(createUserDto: CreateUserDto): UserDto {
     userRepository.findByEmail(createUserDto.email).ifPresent {
-      throw UserException("User alreasy exists with email $createUserDto.email")
+      throw UserException("User alreasy exists with email ${createUserDto.email}")
     }
 
     return mapper.dtoFromEntity(userRepository.save(mapper.toEntityFromDto(createUserDto)))
